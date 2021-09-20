@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Orbitron&display=swap");
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: "Poppins", sans-serif;
+}
+
+body {
+	overflow: hidden;
+}
+
+section {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: #1c1c25;
+}
+
+section::before {
+	content: "";
+	position: absolute;
+	height: 600px;
+	width: 600px;
+	left: 50%;
+	bottom: -45%;
+	background: linear-gradient(#f0f, #f00);
+	border-radius: 50%;
+}
+.card {
+	position: relative;
+	height: 400px;
+	width: 630px;
+	transform-style: preserve-3d;
+	perspective: 500px;
+}
+.card .face {
+	position: absolute;
+	top: 0%;
+	left: 0%;
+	height: 100%;
+	width: 100%;
+	border-radius: 15px;
+	background: rgba(255, 255, 255, 0.05);
+	box-shadow: 0px 15px 30px rgba(0, 0, 0, 0.5);
+	backdrop-filter: blur(10px);
+	transform-style: preserve-3d;
+	backface-visibility: hidden;
+	transition: 1s;
+}
+
+.card:hover .face.front {
+	transform: rotateY(180deg);
+}
+
+.card .face.back {
+	transform: rotateY(180deg);
+}
+
+.card:hover .face.back {
+	transform: rotateY(360deg);
+}
+
+.card .face.front::before {
+	content: "";
+	position: absolute;
+	bottom: 40px;
+	right: 40px;
+	height: 60px;
+	width: 60px;
+	background: #ffd700;
+	border-radius: 50%;
+	opacity: 0.7;
+}
+
+.card .face.front::after {
+	content: "";
+	position: absolute;
+	bottom: 40px;
+	right: 80px;
+	height: 60px;
+	width: 60px;
+	background: red;
+	border-radius: 50%;
+	opacity: 0.7;
+}
+
+.card .face.front .master {
+	position: absolute;
+	top: 30px;
+	left: 40px;
+	font-size: 24px;
+	color: #fff;
+	font-weight: 500;
+}
+
+.card .face.front .bank {
+	position: absolute;
+	top: 20px;
+	right: 30px;
+	color: #fff;
+	font-style: italic;
+	font-weight: 500;
+	font-size: 24px;
+}
+.card .face.front img {
+	position: absolute;
+	height: 60px;
+	max-width: 80px;
+	top: 100px;
+	left: 80px;
+}
+
+.card .face.front .number {
+	position: absolute;
+	top: 50%;
+	left: 10%;
+	color: #fff;
+	letter-spacing: 6px;
+	font-weight: 500;
+	text-shadow: 0px 2px 1px #0005;
+	font-family: "Orbitron", sans-serif;
+}
+
+.card .face.front .valid {
+	position: absolute;
+	bottom: 25%;
+	left: 10%;
+	color: #fff;
+	letter-spacing: 2px;
+	font-weight: 500;
+}
+
+.card .face.front span:last-child {
+	position: absolute;
+	margin-left: 15px;
+	transform: translateY(-10px);
+}
+
+.card .face.front .cardHolder {
+	position: absolute;
+	bottom: 10%;
+	left: 10%;
+	font-weight: 500;
+	font-size: 24px;
+	color: #fff;
+	letter-spacing: 2px;
+}
+
+.card .face.back .blackbar {
+	position: absolute;
+	width: 100%;
+	height: 60px;
+	top: 15%;
+	background: #000;
+}
+
+.card .face.back .ccvtext {
+	position: absolute;
+	top: 140px;
+	left: 10%;
+}
+
+.card .face.back .ccvtext h5 {
+	color: #fff;
+	font-size: 16px;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+}
+
+.card .face.back .ccvtext .whitebar {
+	position: relative;
+	height: 40px;
+	width: 500px;
+	background: #fff;
+	margin-top: 5px;
+}
+
+.card .face.back .ccvtext .ccv {
+	position: relative;
+	background: #ccc;
+	color: #111;
+	height: 30px;
+	width: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	left: 99%;
+	top: -35px;
+	letter-spacing: 2px;
+}
+
+.card .face.back .text {
+	position: absolute;
+	color: #fff;
+	bottom: 30px;
+	right: 30px;
+	left: 30px;
+	text-align: justify;
+}
